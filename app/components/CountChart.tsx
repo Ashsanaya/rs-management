@@ -29,13 +29,13 @@ const data = [
 
 const CountChart = () => {
   return (
-    <div className="bg-white rounded-xl w-[85%] h-[75%] p-6 mt-6">
+    <div className="bg-white rounded-xl w-full h-full p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Employees</h1>
         <CgMore className="text-black w-6 h-6" />
       </div>
       {/* CHART */}
-      <div className="relative w-full h-[70%]">
+      <div className="relative w-full h-[65%]">
         <ResponsiveContainer>
           <RadialBarChart
             cx="50%"
@@ -56,12 +56,12 @@ const CountChart = () => {
       </div>
       {/* BOTTOM */}
       <div className="flex justify-end gap-8 mt-2">
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end gap-1">
           <div className="w-5 h-5 bg-blue-300 rounded-full " />
           <h1 className="font-bold">120</h1>
           <h2 className="text-xs text-gray-600 items-center">Male (88%)</h2>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col gap-1 items-end">
           <div className="w-5 h-5 bg-pink-400 rounded-full" />
           <h1 className="font-bold">16</h1>
           <h2 className="text-xs text-gray-600 items-center">Female (12%)</h2>

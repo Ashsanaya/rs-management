@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { FaBullseye } from "react-icons/fa";
 import { MdMore } from "react-icons/md";
 
 import {
@@ -47,34 +48,46 @@ const data = [
   },
   {
     name: "Sun",
-    present: 8,
-    absent: 128,
+    present: 0,
+    absent: 136,
   },
 ];
 
 const AttendenceChart = () => {
-  return <div className="mt-6">
-    <div className="">
-        <h1>Attendance</h1>
-        <MdMore className="text-black w-6 h-6"/>
-        </div>
-        <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          barSize={20}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+  return (
+    <div className="bg-white rounded-lg p-4 h-full">
+      <div className="flex justify-between items-center">
+        <h1 className="text-lg font-semibold">Attendance</h1>
+        <MdMore className="text-black w-6 h-6" />
+      </div>
+      <ResponsiveContainer width="100%" height="90%">
+        <BarChart width={500} height={300} data={data} barSize={20}>
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#ddd"/>
+          <XAxis dataKey="name" axisLine={false} tick={{fill:"#d1d5db"}} tickLine={false}/>
+          <YAxis axisLine={false} tick={{fill:"#d1d5db"}} tickLine={false}/>
+          <Tooltip 
+          contentStyle={{borderRadius:"10px", borderColor:"lightgray"}}/>
+          <Legend
+            align="left"
+            verticalAlign="top"
+            wrapperStyle={{ paddingTop: "20px", paddingBottom: "40px" }}
+          />
+          <Bar 
+          dataKey="present" 
+          fill="#8884d8" 
+          legendType="circle"
+          radius={[10,10,0,0]} 
+          />
+          <Bar 
+          dataKey="absent" 
+          fill="#82ca9d" 
+          legendType="circle" 
+          radius={[10,10,0,0]} 
+          />
         </BarChart>
       </ResponsiveContainer>
-        </div>;
+    </div>
+  );
 };
 
 export default AttendenceChart;
