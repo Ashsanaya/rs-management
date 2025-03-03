@@ -15,8 +15,8 @@ export default function DashboardLayout({
         {/* Logo & Title */}
 
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/assets/rocksalt.jpg" alt="logo" width={42} height={42} />
-          <span className=" text-md font-bold whitespace-nowrap">Rocksalt Management System</span>
+          <Image src="/assets/rocksalt.jpg" alt="logo" width={50} height={50} />
+          <span className=" text-lg font-bold whitespace-nowrap">RS Management System</span>
         </Link>
         {/* Menu Section */}
         <div className="mt-6">

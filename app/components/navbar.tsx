@@ -5,32 +5,34 @@ import { GrAnnounce } from "react-icons/gr";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center gap-4 justify-between p-4 bg-white shadow-sm">
+    <div className="flex items-center justify-between p-4 bg-white w-full">
       {/* SEARCH BAR */}
-      <div className="hidden md:flex items-center bg-gray-100 border border-gray-300 rounded-md px-3 py-2 w-72">
-        <FaSearch className="text-gray-500 w-4 h-4 mr-2" />
+      <div className="flex items-center gap-2 text-xs rounded-full ring-1 ring-gray-300 px-3 py-2 w-[250px] bg-gray-100">
+        <FaSearch className="w-4 h-4 text-gray-500" />
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent outline-none flex-1 text-sm text-gray-500"
+          className="w-full bg-transparent outline-none text-gray-700"
         />
       </div>
       {/* ICONS AND USER */}
-      <div className="flex items-center gap-5 justify-end w-full">
-        <div className="bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer shadow">
-          <BiMessage className="text-gray-800 w-6 h-6" />
+      <div className="flex items-center gap-6">
+        <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center cursor-pointer shadow">
+          <BiMessage className="text-gray-800 w-5 h-5" />
         </div>
-        <div className="bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer relative shadow">
-          <GrAnnounce className="text-gray-800 w-6 h-6" />
-          <div className="absolute -top-3 -right-2 w-5 h-5 flex items-center justify-center bg-green-500 text-white rounded-full text-xs">
+        <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center cursor-pointer shadow relative">
+          <GrAnnounce className="text-gray-800 w-5 h-5" />
+          <div className="absolute -top-1.5 -right-1.5 w-4 h-4 flex items-center justify-center bg-green-500 text-white rounded-full text-xs">
             1
           </div>
         </div>
-        <div className="flex flex-col">
-          <span className="text-[16px] leading-3 font-medium">Ashrun Sanaya</span>
-          <span className="text-[12px] text-gray-500 text-right">Admin</span>
+        <div className="flex flex-col text-right">
+          <span className="text-[14px] font-medium text-gray-800">Ashrun Sanaya</span>
+          <span className="text-[12px] text-gray-500">Admin</span>
         </div>
-        <BiUserCircle className="w-8 h-8 rounded-full" />
+        <div className="w-9 h-9 rounded-full flex items-center justify-center bg-blue-500 text-white cursor-pointer">
+          <BiUserCircle className="w-6 h-6" />
+        </div>
       </div>
     </div>
   );

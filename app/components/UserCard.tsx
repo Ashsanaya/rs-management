@@ -10,7 +10,7 @@ const UserCard = ({ type }: { type: string }) => {
         </span>
         <CgMore className="w-4 h-4" />
       </div>
-      <h1 className="text-2xl font-semibold my-4">1234</h1>
+      <h1 className="text-2xl font-semibold my-4">123</h1>
       <h2 className="capitalize text-sm font-medium text-gray-500">{type}</h2>
     </div>
   );

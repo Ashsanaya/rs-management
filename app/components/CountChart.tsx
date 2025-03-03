@@ -18,7 +18,7 @@ const data = [
   {
     name: "Female",
     count: 16,
-    fill: "#E96CDA",
+    fill: "#FFD700",
   },
   {
     name: "Male",
@@ -35,14 +35,14 @@ const CountChart = () => {
         <CgMore className="text-black w-6 h-6" />
       </div>
       {/* CHART */}
-      <div className="relative w-full h-[65%]">
+      <div className="relative w-full h-[75%]">
         <ResponsiveContainer>
           <RadialBarChart
             cx="50%"
             cy="50%"
             innerRadius="40%"
             outerRadius="100%"
-            barSize={40}
+            barSize={32}
             data={data}
           >
             <RadialBar
@@ -62,7 +62,7 @@ const CountChart = () => {
           <h2 className="text-xs text-gray-600 items-center">Male (88%)</h2>
         </div>
         <div className="flex flex-col gap-1 items-end">
-          <div className="w-5 h-5 bg-pink-400 rounded-full" />
+          <div className="w-5 h-5 bg-yellow-400 rounded-full" />
           <h1 className="font-bold">16</h1>
           <h2 className="text-xs text-gray-600 items-center">Female (12%)</h2>
         </div>
