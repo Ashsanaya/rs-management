@@ -1,6 +1,6 @@
 // TEMPORARY DATA
 
-export let role = "management";
+export let role = "admin";
 
 export const managersData = [
   {
@@ -11,7 +11,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Math", "Geometry"],
+    team: ["2D", "2D Animation"],
     projects: ["1B", "2A", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -23,7 +23,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Physics", "Chemistry"],
+    team: ["3D", "3D Animation"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -35,7 +35,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Biology"],
+    team: ["Rendering"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -47,7 +47,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["History"],
+    team: ["Development"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -59,7 +59,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Music", "History"],
+    team: ["Finance", "HR"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -71,7 +71,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Physics"],
+    team: ["HR"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -83,7 +83,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["English", "Spanish"],
+    team: ["IT", "Development"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -95,7 +95,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Math", "Geometry"],
+    team: ["2D", "2D Animation"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -107,7 +107,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Literature", "English"],
+    team: ["3D", "3D Animation"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -119,7 +119,7 @@ export const managersData = [
     photo:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    team: ["Biology"],
+    team: ["IT"],
     projects: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
@@ -134,7 +134,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Karthik",
     project: "1B",
     address: "123 Main St, Anytown, USA",
   },
@@ -146,7 +146,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Deepak",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -158,7 +158,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Karthik",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -170,7 +170,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Surender Gowl",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -182,7 +182,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Surender Gowl",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -194,7 +194,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Arjun Reddy",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -206,7 +206,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Arjun Reddy",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -218,7 +218,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Karthik",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -230,7 +230,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Arjun Reddy",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -242,7 +242,7 @@ export const employeeData = [
     photo:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    manager: 5,
+    manager: "Surender Gowl",
     project: "5A",
     address: "123 Main St, Anytown, USA",
   },
@@ -599,55 +599,67 @@ export const calendarEvents = [
   {
     title: "Meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 8, 0),
-    end: new Date(2025, 7, 12, 8, 45),
+    start: new Date(2025, 3, 3, 10, 30),
+    end: new Date(2025, 3, 3, 11, 0),
   },
   {
     title: "Team Meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 9, 0),
-    end: new Date(2025, 7, 12, 9, 45),
+    start: new Date(2025, 3, 3, 12, 30),
+    end: new Date(2025, 3, 3, 13, 30),
   },
   {
     title: "project Meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 10, 0),
-    end: new Date(2025, 7, 12, 10, 45),
+    start: new Date(2025, 3, 3, 15, 30),
+    end: new Date(2025, 3, 3, 15, 45),
   },
   {
     title: "Project Update meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 11, 0),
-    end: new Date(2025, 7, 12, 11, 45),
+    start: new Date(2025, 3,7,  11, 0),
+    end: new Date(2025, 3,7, 11, 45),
   },
   {
     title: "Project Changes Meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 13, 0),
-    end: new Date(2025, 7, 12, 13, 45),
+    start: new Date(2025, 3, 4, 13, 0),
+    end: new Date(2025, 3, 4, 13, 45),
   },
   {
     title: "Project Testing Meeting",
     allDay: false,
-    start: new Date(2025, 7, 12, 14, 0),
-    end: new Date(2025, 7, 12, 14, 45),
+    start: new Date(2025, 3, 5, 14, 0),
+    end: new Date(2025, 3, 5, 14, 45),
   },
   {
     title: "Project Submission Meeting",
     allDay: false,
-    start: new Date(2025, 7, 13, 9, 0),
-    end: new Date(2025, 7, 13, 9, 45),
+    start: new Date(2025, 3, 6, 9, 0),
+    end: new Date(2025, 3, 6, 9, 45),
   },
   {
     title: "Project Modifications",
     allDay: false,
-    start: new Date(2025, 7, 13, 10, 0),
-    end: new Date(2025, 7, 13, 10, 45),
+    start: new Date(2025, 3, 7, 10, 0),
+    end: new Date(2025, 3, 7, 10, 45),
   },
   {
     title: "Project updates",
     allDay: false,
-    start: new Date(2025, 7, 13, 11, 0),
-    end: new Date(2025, 7, 13, 11, 45),
+    start: new Date(2025, 3, 7, 11, 0),
+    end: new Date(2025, 3, 7, 11, 45),
+  },
+  {
+    title: "Client followup",
+    allDay: false,
+    start: new Date(2025, 3, 7, 15, 0),
+    end: new Date(2025, 3, 7, 15, 45),
+  },
+  {
+    title: "client Meeting",
+    allDay: false,
+    start: new Date(2025, 3, 7, 17, 0),
+    end: new Date(2025, 3, 7, 17, 30),
   },
 ];
