@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* ICONS AND USER */}
       <div className="flex items-center gap-6">
         <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center cursor-pointer shadow">
-          <BiMessage className="text-gray-800 w-5 h-5" />
+          <BiMessage className="text-gray-800 w-6 h-6" />
         </div>
         <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center cursor-pointer shadow relative">
           <GrAnnounce className="text-gray-800 w-5 h-5" />

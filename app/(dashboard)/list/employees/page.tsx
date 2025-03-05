@@ -6,19 +6,19 @@ import { BiPlus } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
 import { MdDelete, MdSort } from "react-icons/md";
 import Image from "next/image";
-import { managersData, role } from "@/lib/data";
+import { employeeData, role } from "@/lib/data";
 import { GrView } from "react-icons/gr";
-import Navbar from "@/app/components/navbar";
 
-type Manager = {
+type Employee = {
   id: number;
-  managerId: string;
+  employeeId: string;
+  role: string;
   name: string;
   email?: string;
   photo: string;
   phone: string;
-  team: string[];
-  projects: string[];
+  manager: string;
+  project: string[];
   address: string;
 };
 const columns = [
@@ -27,8 +27,13 @@ const columns = [
     accessor: "info",
   },
   {
-    header: "Manager ID",
-    accessor: "managerId",
+    header: "Employee ID",
+    accessor: "employeeId",
+    className: "hidden md:table-cell",
+  },
+  {
+    header: "Designation",
+    accessor: "role",
     className: "hidden md:table-cell",
   },
 
@@ -38,13 +43,13 @@ const columns = [
     className: "hidden lg:table-cell",
   },
   {
-    header: "Team",
-    accessor: "team",
+    header: "Manager",
+    accessor: "manager",
     className: "hidden md:table-cell",
   },
   {
-    header: "Projects",
-    accessor: "projects",
+    header: "Project",
+    accessor: "project",
     className: "hidden md:table-cell",
   },
   {
@@ -58,10 +63,12 @@ const columns = [
   },
 ];
 
-const ManagementList = () => {
-  const renderRow = (item: Manager) => (
-    <tr  key={item.id}
-    className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200">
+const EmployeeList = () => {
+  const renderRow = (item: Employee) => (
+    <tr
+      key={item.id}
+      className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
+    >
       <td className="flex items-center gap-4 p-4">
         <Image
           src={item.photo}
@@ -75,10 +82,12 @@ const ManagementList = () => {
           <p className="text-xs text-gray-500">{item?.email}</p>
         </div>
       </td>
-      <td className="hidden md:table-cell">{item.managerId}</td>
+      <td className="hidden md:table-cell">{item.employeeId}</td>
+      <td className="hidden md:table-cell">{item.role}</td>
       <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="hidden md:table-cell">{item.team.join(",")}</td>
-      <td className="hidden md:table-cell">{item.projects.join(",")}</td>
+      <td className="hidden md:table-cell">{item.manager}</td>
+
+      <td className="hidden md:table-cell">{item.project}</td>
 
       <td className="hidden md:table-cell">{item.address}</td>
       <td>
@@ -87,9 +96,9 @@ const ManagementList = () => {
             <GrView className="w-4 h-4" />
           </button>
           {role === "admin" && (
-          <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-            <MdDelete className="w-4 h-4" />
-          </button>
+            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+              <MdDelete className="w-4 h-4" />
+            </button>
           )}
         </div>
       </td>
@@ -98,11 +107,7 @@ const ManagementList = () => {
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       <div className="flex items-center justify-between">
-        
-        <h1 className="hidden md:block text-lg font-semibold">
-          {" "}
-          ManagementList
-        </h1>
+        <h1 className="hidden md:block text-lg font-semibold">Employee List</h1>
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
@@ -113,15 +118,15 @@ const ManagementList = () => {
               <MdSort className="w-4 h-4" />
             </button>
             {role === "admin" && (
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
-              <BiPlus className="w-4 h-4" />
-            </button>
+              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
+                <BiPlus className="w-4 h-4" />
+              </button>
             )}
           </div>
         </div>
       </div>
       {/* LIST */}
-      <Table columns={columns} renderRow={renderRow} data={managersData} />
+      <Table columns={columns} renderRow={renderRow} data={employeeData} />
       <div className=""></div>
       {/* PAGINATION */}
       <Pagination />
@@ -130,4 +135,4 @@ const ManagementList = () => {
   );
 };
 
-export default ManagementList;
+export default EmployeeList;

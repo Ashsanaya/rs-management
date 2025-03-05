@@ -11,28 +11,31 @@ export default function DashboardLayout({
   return (
     <div className="h-screen flex">
       {/* LEFT Sidebar*/}
-      <div className="w-[16%] p-4 bg-white shadow-md flex flex-col">
+      <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%] p-4">
         {/* Logo & Title */}
 
-        <Link href="/" className="flex items-center gap-2">
+        <Link 
+        href="/" 
+        className="flex items-center justify-center lg:justify-start gap-2"
+        >
+
           <Image src="/assets/rocksalt.jpg" alt="logo" width={50} height={50} />
-          <span className=" text-lg font-bold whitespace-nowrap">RS Management System</span>
+          <span className=" text-lg font-bold whitespace-nowrap">RS  System</span>
         </Link>
         {/* Menu Section */}
-        <div className="mt-6">
+      
           <Menu />
         </div>
-      </div>
+      
 
       {/* RIGHT Content Area */}
-      <div className="w-[84%] bg-blue-200 overflow-scroll flex flex-col">
+      <div className="w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] overflow-scroll flex flex-col">
         {/* Navbar at the Top Right */}
-        <div className="w-full p-4 flex justify-end bg-white shadow-md">
+       
           <Navbar />
-        </div>
+        {children}
 
         {/* Main Content */}
-        <div className="flex-1 p-6">{children}</div>
       </div>
     </div>
   );
