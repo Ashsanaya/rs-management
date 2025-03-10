@@ -6,6 +6,7 @@ import { BiEdit, BiPlus } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
 import { MdDelete, MdSort } from "react-icons/md";
 import { projectsData, role } from "@/lib/data";
+import FormModal from "@/app/components/FormModal";
 
 type Project = {
   id: number;
@@ -13,9 +14,8 @@ type Project = {
   capacity: number;
   employees: string[];
   manager: string;
-  lead:string;
-  client:string;
-  
+  lead: string;
+  client: string;
 };
 const columns = [
   {
@@ -53,8 +53,7 @@ const columns = [
     accessor: "client",
     className: "hidden md:table-cell",
   },
-  
- 
+
   {
     header: "Actions",
     accessor: "action",
@@ -68,10 +67,8 @@ const ProjectList = () => {
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
     >
       <td className="flex items-center gap-4 p-4">
-      
         <div className="flex flex-col">
           <h3 className="font-semibold">{item.id}</h3>
-          
         </div>
       </td>
       <td className="hidden md:table-cell">{item.name}</td>
@@ -88,9 +85,10 @@ const ProjectList = () => {
             <BiEdit className="w-4 h-4" />
           </button>
           {role === "admin" && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-              <MdDelete className="w-4 h-4" />
-            </button>
+            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+            //   <MdDelete className="w-4 h-4" />
+            // </button>
+            <FormModal table="projects" type="delete" id={item.id} />
           )}
         </div>
       </td>
@@ -110,9 +108,10 @@ const ProjectList = () => {
               <MdSort className="w-4 h-4" />
             </button>
             {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
-                <BiPlus className="w-4 h-4" />
-              </button>
+              // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
+              //   <BiPlus className="w-4 h-4" />
+              // </button>
+              <FormModal table="projects" type="create" />
             )}
           </div>
         </div>

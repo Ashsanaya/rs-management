@@ -2,12 +2,13 @@ import Pagination from "@/app/components/Pagination";
 import Table from "@/app/components/Table";
 import TableSearch from "@/app/components/TableSearch";
 import React from "react";
-import { BiPlus } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
-import { MdDelete, MdSort } from "react-icons/md";
+import { MdSort } from "react-icons/md";
 import Image from "next/image";
 import { managersData, role } from "@/lib/data";
 import { GrView } from "react-icons/gr";
+import FormModal from "@/app/components/FormModal";
+import Link from "next/link";
 
 type Manager = {
   id: number;
@@ -82,13 +83,16 @@ const ManagementList = () => {
       <td className="hidden md:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
+        <Link href={`/list/teachers/${item.id}`}>
           <button className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-200">
             <GrView className="w-4 h-4" />
           </button>
+          </Link>
           {role === "admin" && (
-          <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-            <MdDelete className="w-4 h-4" />
-          </button>
+          // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+          //   <MdDelete className="w-4 h-4" />
+          // </button>
+          <FormModal table="management" type= "delete" id={item.id}/>
           )}
         </div>
       </td>
@@ -112,9 +116,10 @@ const ManagementList = () => {
               <MdSort className="w-4 h-4" />
             </button>
             {role === "admin" && (
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
-              <BiPlus className="w-4 h-4" />
-            </button>
+            // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
+            //   <BiPlus className="w-4 h-4" />
+            // </button>
+            <FormModal table="management"  type="create" />
             )}
           </div>
         </div>

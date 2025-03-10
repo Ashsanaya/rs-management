@@ -659,7 +659,7 @@ export const announcementsData = [
   },
   {
     id: 6,
-    title: "Towbhall",
+    title: "Townhall",
     capacity: 116,
     sendBy:"Ankit",
     date: "2025-01-01",
@@ -791,20 +791,20 @@ export const calendarEvents = [
   {
     title: "Meeting",
     allDay: false,
-    start: new Date(2025, 3, 3, 10, 30),
-    end: new Date(2025, 3, 3, 11, 0),
+    start: new Date(2025, 3, 6, 10, 30,0),
+    end: new Date(2025, 3, 6, 11, 0,0),
   },
   {
     title: "Team Meeting",
     allDay: false,
-    start: new Date(2025, 3, 3, 12, 30),
-    end: new Date(2025, 3, 3, 13, 30),
+    start: new Date(2025, 3, 6, 12, 30,0),
+    end: new Date(2025, 3, 6, 13, 30,0),
   },
   {
     title: "project Meeting",
     allDay: false,
-    start: new Date(2025, 3, 3, 15, 30),
-    end: new Date(2025, 3, 3, 15, 45),
+    start: new Date(2025, 3, 6, 15, 30),
+    end: new Date(2025, 3, 6, 15, 45),
   },
   {
     title: "Project Update meeting",
@@ -815,8 +815,8 @@ export const calendarEvents = [
   {
     title: "Project Changes Meeting",
     allDay: false,
-    start: new Date(2025, 3, 4, 13, 0),
-    end: new Date(2025, 3, 4, 13, 45),
+    start: new Date(2025, 3, 7, 13, 0),
+    end: new Date(2025, 3, 7, 13, 45),
   },
   {
     title: "Project Testing Meeting",
@@ -827,7 +827,7 @@ export const calendarEvents = [
   {
     title: "Project Submission Meeting",
     allDay: false,
-    start: new Date(2025, 3, 6, 9, 0),
+    start: new Date(2025, 3, 6, 9, 30),
     end: new Date(2025, 3, 6, 9, 45),
   },
   {

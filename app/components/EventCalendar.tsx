@@ -11,21 +11,21 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 const events = [
   {
     id: 1,
-    title: "Lorem ipsum dolor",
+    title: "🎉 Office Celebration Announcement",
     time: "12:00 PM - 2:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "We are hosting a Rocksalt Annivesary on 06-03-2025 at Paradise! 🎊 Join us for an amazing time filled with [Food, Fun Activities, Music, etc.]. Don’t miss out! See you all there!",
   },
   {
     id: 2,
-    title: "Lorem ipsum dolor",
+    title: "🍽️ Team Lunch/Dinner Invitation",
     time: "12:00 PM - 2:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Hey Team! 🎉 We’re organizing a Lunch Get-Together on 08-03-2025 at chutney's! 🍕🥗 Let’s take a break, enjoy good food, and have some fun together",
   },
   {
     id: 3,
-    title: "Lorem ipsum dolor",
+    title: "🏆 Employee Recognition Event",
     time: "12:00 PM - 2:00 PM",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "We’re hosting our Quarterly Employee Appreciation Event on 31-03-2025 at Crown Convention Center. Let’s celebrate the hard work and achievements of our amazing team members! 🌟 Be there to cheer them on!",
   },
 ];
 

@@ -7,6 +7,7 @@ import { FiFilter } from "react-icons/fi";
 import { MdDelete, MdSort } from "react-icons/md";
 import { announcementsData, role } from "@/lib/data";
 import { GrView } from "react-icons/gr";
+import FormModal from "@/app/components/FormModal";
 
 type Announcement = {
  
@@ -105,9 +106,10 @@ const AnnouncementList = () => {
             <GrView className="w-4 h-4" />
           </button>
           {role === "admin" && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-              <MdDelete className="w-4 h-4" />
-            </button>
+            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+            //   <MdDelete className="w-4 h-4" />
+            // </button>
+             <FormModal table="announcements"  type= "delete" id={item.id}/>
           )}
         </div>
       </td>
@@ -127,9 +129,10 @@ const AnnouncementList = () => {
               <MdSort className="w-4 h-4" />
             </button>
             {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
-                <BiPlus className="w-4 h-4" />
-              </button>
+              // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
+              //   <BiPlus className="w-4 h-4" />
+              // </button>
+              <FormModal table="announcements"  type= "create"/>
             )}
           </div>
         </div>

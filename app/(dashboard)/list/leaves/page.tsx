@@ -6,19 +6,18 @@ import { BiEdit, BiPlus } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
 import { MdDelete, MdSort } from "react-icons/md";
 import { leaveData, role } from "@/lib/data";
+import FormModal from "@/app/components/FormModal";
 
 type Leaves = {
- 
   id: number;
   leaveType: string;
   days: number;
   startTime: string;
   endTime: string;
-  reason:string;
-  manager:string;
-  status:string;
-  lop:boolean;  
-  
+  reason: string;
+  manager: string;
+  status: string;
+  lop: boolean;
 };
 const columns = [
   {
@@ -30,7 +29,7 @@ const columns = [
     accessor: "leaveType",
     className: "hidden md:table-cell",
   },
- 
+
   {
     header: "Days",
     accessor: "days",
@@ -67,7 +66,7 @@ const columns = [
     accessor: "lop",
     className: "hidden md:table-cell",
   },
- 
+
   {
     header: "Actions",
     accessor: "action",
@@ -81,10 +80,8 @@ const LeaveList = () => {
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
     >
       <td className="flex items-center gap-4 p-4">
-      
         <div className="flex flex-col">
           <h3 className="font-semibold">{item.id}</h3>
-          
         </div>
       </td>
       <td className="hidden md:table-cell">{item.leaveType}</td>
@@ -102,9 +99,10 @@ const LeaveList = () => {
             <BiEdit className="w-4 h-4" />
           </button>
           {role === "admin" && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-              <MdDelete className="w-4 h-4" />
-            </button>
+            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+            //   <MdDelete className="w-4 h-4" />
+            // </button>
+            <FormModal table="leaves" type="delete" id={item.id} />
           )}
         </div>
       </td>
@@ -124,9 +122,10 @@ const LeaveList = () => {
               <MdSort className="w-4 h-4" />
             </button>
             {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
-                <BiPlus className="w-4 h-4" />
-              </button>
+              // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
+              //   <BiPlus className="w-4 h-4" />
+              // </button>
+              <FormModal table="leaves" type="create" />
             )}
           </div>
         </div>

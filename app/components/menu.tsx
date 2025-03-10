@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaHome, FaUsers, FaBriefcase } from "react-icons/fa";
 import { FcSettings } from "react-icons/fc";
 import { GrAnnounce, GrGroup, GrUserManager } from "react-icons/gr";
+import { MdComputer } from "react-icons/md";
 
 const menuItems = [
   {
@@ -19,13 +20,13 @@ const menuItems = [
       {
         icon: <GrUserManager className="w-6 h-6" />,
         label: "Management",
-        href: "/management",
+        href: "/list/management",
         visible: ["admin", "management"],
       },
       {
         icon: <GrGroup className="w-6 h-6" />,
         label: "Employees",
-        href: "/employees",
+        href: "/list/employees",
         visible: ["admin", "management"],
       },
       {
@@ -35,15 +36,21 @@ const menuItems = [
         visible: ["admin", "management"],
       },
       {
+        icon: <MdComputer className="w-6 h-6" />,
+        label: "IT",
+        href: "/it",
+        visible: ["admin", "management"],
+      },
+      {
         icon: <FaUsers className="w-6 h-6" />,
         label: "Attendance",
-        href: "/AttendanceChart",
+        href: "/list/attendance",
         visible: ["admin", "management", "employees", "hr"],
       },
       {
         icon: <BiCalendar className="w-6 h-6" />,
         label: "Events",
-        href: "/EventCalendar",
+        href: "/list/events",
         visible: ["admin", "management", "employees", "hr"],
       },
       {
@@ -55,7 +62,7 @@ const menuItems = [
       {
         icon: <GrAnnounce className="w-6 h-6" />,
         label: "Announcement",
-        href: "/Announcements",
+        href: "/list/announcements",
         visible: ["admin", "management", "employees", "hr"],
       },
     ],
