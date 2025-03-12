@@ -2,23 +2,21 @@ import Pagination from "@/app/components/Pagination";
 import Table from "@/app/components/Table";
 import TableSearch from "@/app/components/TableSearch";
 import React from "react";
-import { BiEdit, BiPlus } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
-import { MdDelete, MdSort } from "react-icons/md";
-import { eventsData, role } from "@/lib/data";
+import Image from "next/image";
+import { employeeData, role } from "@/lib/data";
+import { GrView } from "react-icons/gr";
 import FormModal from "@/app/components/FormModal";
+import { MdSort } from "react-icons/md";
 
-type Events = {
- 
+type HrPage = {
   id: number;
-  title: string;
-  capacity: number;
-  employees: string[];
-  organizers: string[];
-  days: number;
-  date: string;
-  startTime: string;
-  endTime: string;
+  employeeId: string;
+  role: string;
+  name: string;
+  email?: string;
+  photo: string;
+  phone: string;
   address: string;
 };
 const columns = [
@@ -27,94 +25,66 @@ const columns = [
     accessor: "info",
   },
   {
-    header: "Title",
-    accessor: "title",
+    header: "Employee ID",
+    accessor: "employeeId",
     className: "hidden md:table-cell",
   },
   {
-    header: "Team Size",
-    accessor: "capacity",
+    header: "Designation",
+    accessor: "role",
     className: "hidden md:table-cell",
   },
 
   {
-    header: "Employee Names",
-    accessor: "employees",
+    header: "Phone",
+    accessor: "phone",
     className: "hidden lg:table-cell",
   },
-  {
-    header: "Organizers",
-    accessor: "organizers",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Date",
-    accessor: "lead",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Days",
-    accessor: "days",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Start Time",
-    accessor: "startTime",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "End Time",
-    accessor: "endTime",
-    className: "hidden md:table-cell",
-  },
-
-  {
-    header: "Location",
-    accessor: "address",
-    className: "hidden md:table-cell",
-  },
-  
  
+  {
+    header: "Address",
+    accessor: "address",
+    className: "hidden lg:table-cell",
+  },
   {
     header: "Actions",
     accessor: "action",
   },
 ];
 
-const EventList = () => {
-  const renderRow = (item: Events) => (
+const HrPageList = () => {
+  const renderRow = (item: HrPage) => (
     <tr
       key={item.id}
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
     >
       <td className="flex items-center gap-4 p-4">
-      
+        <Image
+          src={item.photo}
+          alt=""
+          width={40}
+          height={40}
+          className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+        />
         <div className="flex flex-col">
-          <h3 className="font-semibold">{item.id}</h3>
-          
+          <h3 className="font-semibold">{item.name}</h3>
+          <p className="text-xs text-gray-500">{item?.email}</p>
         </div>
       </td>
-      <td className="hidden md:table-cell">{item.title}</td>
-      <td className="hidden md:table-cell">{item.capacity}</td>
-      <td className="hidden md:table-cell">{item.employees.join(",")}</td>
-      <td className="hidden md:table-cell">{item.organizers.join(",")}</td>
-      <td className="hidden md:table-cell">{item.date}</td>
-      <td className="hidden md:table-cell">{item.days}</td>
-      <td className="hidden md:table-cell">{item.startTime}</td>
-      <td className="hidden md:table-cell">{item.endTime}</td>
+      <td className="hidden md:table-cell">{item.employeeId}</td>
+      <td className="hidden md:table-cell">{item.role}</td>
+      <td className="hidden md:table-cell">{item.phone}</td>
       <td className="hidden md:table-cell">{item.address}</td>
-
       <td>
         <div className="flex items-center gap-2">
           <button className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-200">
-            <BiEdit className="w-4 h-4" />
+            <GrView className="w-4 h-4" />
           </button>
           {role === "admin" && (
-            <>
-           
-            <FormModal table="events" type= "update" data={item}/>
-            <FormModal table="events" type= "delete" id={item.id}/>
-            </>
+            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+            //   <MdDelete className="w-4 h-4" />
+            // </button>
+            <FormModal table="hr" type= "delete" id={item.id}/>
           )}
         </div>
       </td>
@@ -123,7 +93,7 @@ const EventList = () => {
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       <div className="flex items-center justify-between">
-        <h1 className="hidden md:block text-lg font-semibold">Events </h1>
+        <h1 className="hidden md:block text-lg font-semibold">HR List</h1>
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
@@ -137,13 +107,13 @@ const EventList = () => {
               // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
               //   <BiPlus className="w-4 h-4" />
               // </button>
-              <FormModal table="events" type= "create"/>
+              <FormModal table="hr"  type= "create"/>
             )}
           </div>
         </div>
       </div>
       {/* LIST */}
-      <Table columns={columns} renderRow={renderRow} data={eventsData} />
+      <Table columns={columns} renderRow={renderRow} data={employeeData} />
       <div className=""></div>
       {/* PAGINATION */}
       <Pagination />
@@ -152,4 +122,4 @@ const EventList = () => {
   );
 };
 
-export default EventList;
+export default HrPageList;

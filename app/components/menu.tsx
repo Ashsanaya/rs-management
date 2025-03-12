@@ -43,8 +43,8 @@ const menuItems = [
       },
       {
         icon: <FaUsers className="w-6 h-6" />,
-        label: "Attendance",
-        href: "/list/attendance",
+        label: "Projects",
+        href: "/list/projects",
         visible: ["admin", "management", "employees", "hr"],
       },
       {

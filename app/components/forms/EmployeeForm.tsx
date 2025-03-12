@@ -26,7 +26,7 @@ const schema = z.object({
 
 type Inputs = z.infer<typeof schema>;
 
-const ManagerForm = ({
+const EmployeeForm = ({
   type,
   data,
 }: {
@@ -161,4 +161,4 @@ const ManagerForm = ({
   );
 };
 
-export default ManagerForm;
+export default EmployeeForm;

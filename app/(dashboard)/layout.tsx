@@ -20,7 +20,7 @@ export default function DashboardLayout({
         >
 
           <Image src="/assets/rocksalt.jpg" alt="logo" width={50} height={50} />
-          <span className=" text-lg font-bold whitespace-nowrap">RS  System</span>
+          <span className=" text-2xl font-bold whitespace-nowrap">RocKSALT</span>
         </Link>
         {/* Menu Section */}
       

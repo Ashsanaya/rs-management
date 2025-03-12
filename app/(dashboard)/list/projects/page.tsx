@@ -8,7 +8,7 @@ import { MdDelete, MdSort } from "react-icons/md";
 import { projectsData, role } from "@/lib/data";
 import FormModal from "@/app/components/FormModal";
 
-type Project = {
+type Projects = {
   id: number;
   name: string;
   capacity: number;
@@ -16,6 +16,7 @@ type Project = {
   manager: string;
   lead: string;
   client: string;
+  dueDate: string;
 };
 const columns = [
   {
@@ -53,6 +54,11 @@ const columns = [
     accessor: "client",
     className: "hidden md:table-cell",
   },
+  {
+    header: "Due Date",
+    accessor: "dueDate",
+    className: "hidden md:table-cell",
+  },
 
   {
     header: "Actions",
@@ -61,7 +67,7 @@ const columns = [
 ];
 
 const ProjectList = () => {
-  const renderRow = (item: Project) => (
+  const renderRow = (item: Projects) => (
     <tr
       key={item.id}
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
@@ -78,17 +84,19 @@ const ProjectList = () => {
 
       <td className="hidden md:table-cell">{item.lead}</td>
       <td className="hidden md:table-cell">{item.client}</td>
+      <td className="hidden md:table-cell">{item.dueDate}</td>
 
       <td>
         <div className="flex items-center gap-2">
           <button className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-200">
             <BiEdit className="w-4 h-4" />
           </button>
-          {role === "admin" && (
-            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-            //   <MdDelete className="w-4 h-4" />
-            // </button>
+          {role === "admin" || role === "management" && (
+            <>
+           
+            <FormModal table="projects" type="update" data={item} />
             <FormModal table="projects" type="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>
@@ -107,7 +115,7 @@ const ProjectList = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-200">
               <MdSort className="w-4 h-4" />
             </button>
-            {role === "admin" && (
+            {role === "admin" || role === "management" && (
               // <button className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-200">
               //   <BiPlus className="w-4 h-4" />
               // </button>
