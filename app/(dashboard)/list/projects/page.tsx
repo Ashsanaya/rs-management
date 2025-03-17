@@ -16,7 +16,7 @@ type Projects = {
   manager: string;
   lead: string;
   client: string;
-  dueDate: string;
+  deadline: string;
 };
 const columns = [
   {
@@ -55,8 +55,8 @@ const columns = [
     className: "hidden md:table-cell",
   },
   {
-    header: "Due Date",
-    accessor: "dueDate",
+    header: "Deadline",
+    accessor: "deadline",
     className: "hidden md:table-cell",
   },
 
@@ -84,7 +84,7 @@ const ProjectList = () => {
 
       <td className="hidden md:table-cell">{item.lead}</td>
       <td className="hidden md:table-cell">{item.client}</td>
-      <td className="hidden md:table-cell">{item.dueDate}</td>
+      <td className="hidden md:table-cell">{item.deadline}</td>
 
       <td>
         <div className="flex items-center gap-2">

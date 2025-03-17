@@ -48,11 +48,40 @@ model Management{
   employees Employees[]
   projects Projects[]
 }
-model Team{}
-model Events{}
-model Leaves{}
+
+model Team{
+  id Int @id @default(autoincrement())
+  name String @unique
+  management Management[]
+  employees Employee[]
+  
+}
+
+model Projects{
+  id Int @id @default(autoincrement())
+  name String @unique
+  management Management[]
+  employees Employee[]
+  deadLine DateTime
+}
+model Events{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  startTime DateTime
+  endTime DateTime
+  employees Employee[]
+  employeeId Int?
+}
+model Leaves{
+  id Int @id @default(autoincrement())
+  leaveType String
+  days Int
+  startDate DateTime
+  endDate DateTime
+}
 model Employee{}
-model Projects{}
+
 model Announcements{}
 
 

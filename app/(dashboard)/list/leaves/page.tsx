@@ -12,8 +12,8 @@ type Leaves = {
   id: number;
   leaveType: string;
   days: number;
-  startTime: string;
-  endTime: string;
+  startDate: string;
+  endDate: string;
   reason: string;
   manager: string;
   status: string;
@@ -36,13 +36,13 @@ const columns = [
     className: "hidden md:table-cell",
   },
   {
-    header: "Start Time",
-    accessor: "startTime",
+    header: "Start Date",
+    accessor: "startDate",
     className: "hidden md:table-cell",
   },
   {
-    header: "End Time",
-    accessor: "endTime",
+    header: "End Date",
+    accessor: "endDate",
     className: "hidden md:table-cell",
   },
 
@@ -86,8 +86,8 @@ const LeaveList = () => {
       </td>
       <td className="hidden md:table-cell">{item.leaveType}</td>
       <td className="hidden md:table-cell">{item.days}</td>
-      <td className="hidden md:table-cell">{item.startTime}</td>
-      <td className="hidden md:table-cell">{item.endTime}</td>
+      <td className="hidden md:table-cell">{item.startDate}</td>
+      <td className="hidden md:table-cell">{item.endDate}</td>
       <td className="hidden md:table-cell">{item.reason}</td>
       <td className="hidden md:table-cell">{item.manager}</td>
       <td className="hidden md:table-cell">{item.status}</td>
