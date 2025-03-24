@@ -9,7 +9,7 @@ import { projectsData, role } from "@/lib/data";
 import FormModal from "@/app/components/FormModal";
 
 type Projects = {
-  id: number;
+  id: string;
   name: string;
   capacity: number;
   employees: string[];

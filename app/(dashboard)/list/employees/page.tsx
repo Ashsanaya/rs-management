@@ -10,7 +10,7 @@ import FormModal from "@/app/components/FormModal";
 import { MdSort } from "react-icons/md";
 
 type Employee = {
-  id: number;
+  id: string;
   employeeId: string;
   role: string;
   name: string;

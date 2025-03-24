@@ -6,6 +6,8 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = []
+  output          = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -13,77 +15,110 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Admin{
-  id String @id
+model Admin {
+  id       String @id
   username String @unique
 }
 
-model Employee{
-  id String @id
-  username String @unique
-  name String 
-  surname String
-  email String?
-  phone String?
-  address String 
-  img String?
-  bloodType String 
-  sex UserSex
-  createdAt DateTime @default(now())
-  managerId String
-  management Management @relation(fields:[managerId], references:[id])
+model Employees {
+  id         String     @id
+  username   String     @unique
+  name       String
+  surname    String
+  email      String?
+  phone      String?
+  address    String
+  img        String?
+  bloodType  String
+  sex        UserSex
+  birthday   DateTime?
+  createdAt  DateTime   @default(now())
+  managerId  String
+  management Management @relation(fields: [managerId], references: [id])
+  teams      Team[]     @relation("TeamEmployees")
+  projects   Projects[] @relation("ProjectEmployees")
+  events     Events[]   @relation("EventEmployees")
 }
-model Management{
-  id String @id
-  username String @unique
-  name String 
-  surname String
-  email String?
-  phone String?
-  address String 
-  img String?
-  bloodType String 
-  sex String
-  createdAt DateTime @default(now())
+
+model Management {
+  id        String      @id
+  username  String      @unique
+  name      String
+  surname   String
+  email     String?
+  phone     String?
+  address   String
+  img       String?
+  bloodType String
+  sex       UserSex
+  birthday  DateTime?
+  createdAt DateTime    @default(now())
   employees Employees[]
-  projects Projects[]
+  projects  Projects[]
+  teams     Team[]      @relation("TeamManagement")
 }
 
-model Team{
-  id Int @id @default(autoincrement())
-  name String @unique
-  management Management[]
-  employees Employee[]
-  
+model Team {
+  id         Int          @id @default(autoincrement())
+  name       String       @unique
+  management Management[] @relation("TeamManagement")
+  employees  Employees[]  @relation("TeamEmployees")
 }
 
-model Projects{
-  id Int @id @default(autoincrement())
-  name String @unique
+model Projects {
+  id         Int          @id @default(autoincrement())
+  name       String       @unique
   management Management[]
-  employees Employee[]
-  deadLine DateTime
+  employees  Employees[]  @relation("ProjectEmployees")
+  deadLine   DateTime
 }
-model Events{
-  id Int @id @default(autoincrement())
-  title String
+
+model Events {
+  id          Int         @id @default(autoincrement())
+  title       String
   description String
-  startTime DateTime
-  endTime DateTime
-  employees Employee[]
-  employeeId Int?
+  startTime   DateTime
+  endTime     DateTime
+  employees   Employees[] @relation("EventEmployees")
+  employeeId  Int?
 }
-model Leaves{
-  id Int @id @default(autoincrement())
+
+model Leaves {
+  id        Int      @id @default(autoincrement())
   leaveType String
-  days Int
+  days      Int
   startDate DateTime
-  endDate DateTime
+  endDate   DateTime
 }
-model Employee{}
 
-model Announcements{}
+/**
+ * model Attendance{
+ * id Int @id @default(autoincrement())
+ * date DateTime
+ * present Boolean
+ * employeeId String
+ * employees Employees @relation(fields: [employeeId], references:[id])
+ * projectsId Int
+ * projects Projects @relation(fields: [projectsId],references:[id])
+ * }
+ */
 
+model Announcements {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  date        DateTime
+}
 
+enum UserSex {
+  MALE
+  FEMALE
+}
 
-
+enum Day {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+}
