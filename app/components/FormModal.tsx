@@ -45,7 +45,7 @@ const FormModal = ({
   data?: any;
   id?: string;
 }) => {
-  const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
+  const size = type === "create" ? "w-8 h-8" : "w-8 h-8";
   const bgColor =
     type === "create"
       ? "bg-yellow-200"

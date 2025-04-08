@@ -9,7 +9,7 @@ import { projectsData, role } from "@/lib/data";
 import FormModal from "@/app/components/FormModal";
 
 type Team = {
-  id: number;
+  id: string;
   name: string;
   capacity: number;
   employees: string[];
@@ -109,7 +109,7 @@ const TeamList = () => {
       <Table columns={columns} renderRow={renderRow} data={projectsData} />
       <div className=""></div>
       {/* PAGINATION */}
-      <Pagination />
+      {/* <Pagination /> */}
       <div className=""></div>
     </div>
   );

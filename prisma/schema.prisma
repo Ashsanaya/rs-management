@@ -7,7 +7,6 @@
 generator client {
   provider = "prisma-client-js"
   previewFeatures = []
-  output          = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -26,6 +25,7 @@ model Employees {
   name       String
   surname    String
   email      String?
+  role       String
   phone      String?
   address    String
   img        String?
@@ -91,17 +91,7 @@ model Leaves {
   endDate   DateTime
 }
 
-/**
- * model Attendance{
- * id Int @id @default(autoincrement())
- * date DateTime
- * present Boolean
- * employeeId String
- * employees Employees @relation(fields: [employeeId], references:[id])
- * projectsId Int
- * projects Projects @relation(fields: [projectsId],references:[id])
- * }
- */
+
 
 model Announcements {
   id          Int      @id @default(autoincrement())

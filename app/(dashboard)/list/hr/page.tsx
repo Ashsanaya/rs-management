@@ -10,7 +10,7 @@ import FormModal from "@/app/components/FormModal";
 import { MdSort } from "react-icons/md";
 
 type HrPage = {
-  id: number;
+  id: string;
   employeeId: string;
   role: string;
   name: string;
@@ -19,6 +19,7 @@ type HrPage = {
   phone: string;
   address: string;
 };
+
 const columns = [
   {
     header: "Info",
@@ -51,45 +52,45 @@ const columns = [
     accessor: "action",
   },
 ];
-
+const renderRow = (item: HrPage) => (
+  <tr
+    key={item.id}
+    className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
+  >
+    <td className="flex items-center gap-4 p-4">
+      <Image
+        src={item.photo}
+        alt=""
+        width={40}
+        height={40}
+        className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+      />
+      <div className="flex flex-col">
+        <h3 className="font-semibold">{item.name}</h3>
+        <p className="text-xs text-gray-500">{item?.email}</p>
+      </div>
+    </td>
+    <td className="hidden md:table-cell">{item.employeeId}</td>
+    <td className="hidden md:table-cell">{item.role}</td>
+    <td className="hidden md:table-cell">{item.phone}</td>
+    <td className="hidden md:table-cell">{item.address}</td>
+    <td>
+      <div className="flex items-center gap-2">
+        <button className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-200">
+          <GrView className="w-4 h-4" />
+        </button>
+        {role === "admin" && (
+          // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
+          //   <MdDelete className="w-4 h-4" />
+          // </button>
+          <FormModal table="hr" type= "delete" id={item.id}/>
+        )}
+      </div>
+    </td>
+  </tr>
+);
 const HrPageList = () => {
-  const renderRow = (item: HrPage) => (
-    <tr
-      key={item.id}
-      className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-purple-200"
-    >
-      <td className="flex items-center gap-4 p-4">
-        <Image
-          src={item.photo}
-          alt=""
-          width={40}
-          height={40}
-          className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
-        />
-        <div className="flex flex-col">
-          <h3 className="font-semibold">{item.name}</h3>
-          <p className="text-xs text-gray-500">{item?.email}</p>
-        </div>
-      </td>
-      <td className="hidden md:table-cell">{item.employeeId}</td>
-      <td className="hidden md:table-cell">{item.role}</td>
-      <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="hidden md:table-cell">{item.address}</td>
-      <td>
-        <div className="flex items-center gap-2">
-          <button className="w-7 h-7 flex items-center justify-center rounded-full bg-blue-200">
-            <GrView className="w-4 h-4" />
-          </button>
-          {role === "admin" && (
-            // <button className="w-7 h-7 flex items-center justify-center rounded-full bg-purple-200">
-            //   <MdDelete className="w-4 h-4" />
-            // </button>
-            <FormModal table="hr" type= "delete" id={item.id}/>
-          )}
-        </div>
-      </td>
-    </tr>
-  );
+ 
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       <div className="flex items-center justify-between">
@@ -116,7 +117,7 @@ const HrPageList = () => {
       <Table columns={columns} renderRow={renderRow} data={employeeData} />
       <div className=""></div>
       {/* PAGINATION */}
-      <Pagination />
+      {/* <Pagination page={p} count={count}/> */}
       <div className=""></div>
     </div>
   );
