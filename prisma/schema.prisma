@@ -25,7 +25,8 @@ model Employees {
   name       String
   surname    String
   email      String?
-  role       String
+  role       Role       @default(INTERN)
+  department Department @default(IT)
   phone      String?
   address    String
   img        String?
@@ -46,6 +47,7 @@ model Management {
   name      String
   surname   String
   email     String?
+  department Department @default(IT)
   phone     String?
   address   String
   img       String?
@@ -111,4 +113,30 @@ enum Day {
   WEDNESDAY
   THURSDAY
   FRIDAY
+}
+
+enum Role {
+  IT_MANAGER
+  PROJECT_MANAGER
+  SOFTWARE_DEVELOPER
+  INTERN
+  QA
+  ANIMATION_2D
+  MNP_2D
+  ANIMATION_3D
+  HR_ADMIN
+  FINANCE_ANALYST
+}
+
+
+enum Department {
+  MANAGEMENT
+  DEVELOPMENT
+  QA
+  TEAM_2D
+  TEAM_3D
+  HR
+  IT
+  ANIMATION
+  FINANCE
 }

@@ -133,7 +133,7 @@ const SingleEmployeePage = ()=> {
             <Link className="p-3 rounded-md bg-blue-200" href="/">
               Projects done
             </Link>
-            <Link className="p-3 rounded-md bg-purple-200" href="/">
+            <Link className="p-3 rounded-md bg-purple-200" href={`/list/management?id=${2}`}>
               Experience In
             </Link>
             <Link className="p-3 rounded-md bg-yellow-200" href="/">
